@@ -1,6 +1,7 @@
 CREATE TABLE plaat (
 	  id int not null auto_increment,
     prijs				DOUBLE(5,2),
+    naamAlbum           VARCHAR(25)
     producent		VARCHAR(25),
     zanger   		VARCHAR(25),
     lengte			int,
