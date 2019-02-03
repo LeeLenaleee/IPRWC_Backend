@@ -1,5 +1,5 @@
 INSERT into plaat
-values (default, 30.01, 'Atlantic Ocean', 'Ariana Grande', 200,'https://velvetmusic.nl/img//albums/2018/06/22/GRANDE,%20ARIANA%20-%20SWEETENER.jpg');
+values (default, 30.01, 'Sweetener', 'Atlantic Ocean', 'Ariana Grande', 200,'https://velvetmusic.nl/img//albums/2018/06/22/GRANDE,%20ARIANA%20-%20SWEETENER.jpg');
 
 INSERT INTO gebruiker
 VALUES (DEFAULT, 'KAAAAAAZPER','test@test.com', '9F86D081884C7D659A2FEAA0C55AD015A3BF4F1B2B0B822CD15D6C15B0F00A08', 'ADMIN'),
