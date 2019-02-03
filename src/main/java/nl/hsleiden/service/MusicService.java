@@ -17,4 +17,8 @@ public class MusicService extends BaseService<MusicModel, MusicDAO> {
     public List<MusicModel> findByOmschrijving(String omschrijving) {
         return this.dao.findByOmschrijving(omschrijving);
     }
+
+    public MusicModel getRandom() {
+        return dao.getRandom();
+    }
 }

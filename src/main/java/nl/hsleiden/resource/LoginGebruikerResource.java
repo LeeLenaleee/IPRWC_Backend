@@ -37,4 +37,14 @@ public class LoginGebruikerResource {
         return service.getByCredentials(credentials.getGebruikersnaam(), credentials.getWachtwoord())
                 .orElseThrow(() -> new NotAuthorizedException("Required credentials"));
     }
+
+    /*@POST
+    @Path("/signup")
+    @UnitOfWork
+    @Consumes(MediaType.APPLICATION_JSON)
+    @JsonView(View.Public.class)
+    public void signUp(@QueryParam("email") String email, @QueryParam("username")String username, @QueryParam("password"), String password) {
+       GebruikerModel gebruikerModel = new GebruikerModel()
+        System.err.println(gebruikerModel.getPassword());
+    }*/
 }

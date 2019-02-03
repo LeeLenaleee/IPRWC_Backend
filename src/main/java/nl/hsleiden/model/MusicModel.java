@@ -11,6 +11,9 @@ public class MusicModel extends BaseModel {
     @Column(name = "prijs")
     private Double prijs;
 
+    @Column(name = "naamAlbum")
+    private String naamAlbum;
+
     @Column(name = "producent")
     private String producent;
 
@@ -24,6 +27,14 @@ public class MusicModel extends BaseModel {
     private String cover;
 
     public MusicModel() {
+    }
+
+    public String getNaamAlbum() {
+        return naamAlbum;
+    }
+
+    public void setNaamAlbum(String naamAlbum) {
+        this.naamAlbum = naamAlbum;
     }
 
     public Double getPrijs() {
