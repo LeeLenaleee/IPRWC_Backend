@@ -1,6 +1,8 @@
 package nl.hsleiden.service;
 
 import nl.hsleiden.model.GebruikerModel;
+import nl.hsleiden.model.RegisterModel;
+import nl.hsleiden.model.Role;
 import nl.hsleiden.persistence.GebruikerDAO;
 
 import javax.inject.Inject;
@@ -16,8 +18,13 @@ public class GebruikerService extends BaseService<GebruikerModel, GebruikerDAO> 
         return dao.getByCredentials(username, wachtwoord);
     }
 
-    public void signUp(GebruikerModel gebruikerModel) {
+    public void signUp(RegisterModel registerModel) {
         System.err.println("test2");
-        dao.signUp(gebruikerModel);
+        GebruikerModel gebruikerModel = new GebruikerModel();
+        gebruikerModel.setEmailAdres(registerModel.getEmail());
+        gebruikerModel.setGebruikersnaam(registerModel.getGebruikersnaam());
+        gebruikerModel.setWachtwoord(registerModel.getWachtwoord());
+        gebruikerModel.setRole(Role.USER);
+        dao.create(gebruikerModel);
     }
 }

@@ -33,15 +33,9 @@ public class RegisterResource {
     @POST
     @UnitOfWork
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.WILDCARD)
     @JsonView(View.Public.class)
     public void signUp(@Valid RegisterModel registerModel) {
         System.err.println("test");
-        GebruikerModel gebruikerModel = new GebruikerModel();
-        gebruikerModel.setEmailAdres(registerModel.getEmail());
-        gebruikerModel.setGebruikersnaam(registerModel.getGebruikersnaam());
-        gebruikerModel.setWachtwoord(registerModel.getWachtwoord());
-        gebruikerModel.setRole(Role.USER);
-        service.create(gebruikerModel);
+        service.signUp(registerModel);
     }
 }
