@@ -15,4 +15,9 @@ public class GebruikerService extends BaseService<GebruikerModel, GebruikerDAO> 
     public Optional<GebruikerModel> getByCredentials(String username, String wachtwoord) {
         return dao.getByCredentials(username, wachtwoord);
     }
+
+    public void signUp(GebruikerModel gebruikerModel) {
+        System.err.println("test2");
+        dao.signUp(gebruikerModel);
+    }
 }

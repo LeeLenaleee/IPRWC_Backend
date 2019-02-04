@@ -46,6 +46,13 @@ public class GebruikerModel extends BaseModel implements Principal {
         this.role = role;
     }
 
+    public GebruikerModel(String gebruikersnaam, String email, String password, Role user) {
+        this.gebruikersnaam = gebruikersnaam;
+        this.emailAdres = email;
+        this.wachtwoord = password;
+        this.role = user;
+    }
+
     public boolean hasRole(Role role) {
         return this.role.hasRole(role);
     }

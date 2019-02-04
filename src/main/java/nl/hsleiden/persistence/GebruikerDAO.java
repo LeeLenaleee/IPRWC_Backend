@@ -26,4 +26,8 @@ public class GebruikerDAO extends BaseDAO<GebruikerModel> {
                 criteriaBuilder.equal(root.get("wachtwoord"), password)
         )), query -> query.uniqueResultOptional());
     }
+
+    public void signUp(GebruikerModel gebruikerModel) {
+        currentSession().save(gebruikerModel);
+    }
 }

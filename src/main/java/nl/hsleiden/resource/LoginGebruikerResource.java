@@ -5,6 +5,8 @@ import io.dropwizard.hibernate.UnitOfWork;
 import nl.hsleiden.View;
 import nl.hsleiden.model.CredentialsModel;
 import nl.hsleiden.model.GebruikerModel;
+import nl.hsleiden.model.RegisterModel;
+import nl.hsleiden.model.Role;
 import nl.hsleiden.service.GebruikerService;
 
 import javax.inject.Inject;
@@ -39,12 +41,40 @@ public class LoginGebruikerResource {
     }
 
     /*@POST
-    @Path("/signup")
+    @Path("/register")
     @UnitOfWork
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Public.class)
-    public void signUp(@QueryParam("email") String email, @QueryParam("username")String username, @QueryParam("password"), String password) {
-       GebruikerModel gebruikerModel = new GebruikerModel()
-        System.err.println(gebruikerModel.getPassword());
+    public void signUp(@Valid RegisterModel registerModel) {
+        System.err.println("test");
+        GebruikerModel gebruikerModel = new GebruikerModel();
+        gebruikerModel.setEmailAdres(registerModel.getEmail());
+        gebruikerModel.setGebruikersnaam(registerModel.getGebruikersnaam());
+        gebruikerModel.setWachtwoord(registerModel.getWachtwoord());
+        gebruikerModel.setRole(Role.USER);
+        service.create(gebruikerModel);
+    }*/
+
+    @GET
+    @Path("/register")
+    @UnitOfWork
+    @Consumes(MediaType.APPLICATION_JSON)
+    @JsonView(View.Public.class)
+    public String signUp(@QueryParam("email") String email, @QueryParam("gebruikersnaam") String gebruikersnaam, @QueryParam("password") String password) {
+        GebruikerModel gebruikerModel = new GebruikerModel(gebruikersnaam, email, password, Role.USER);
+        service.create(gebruikerModel);
+        return email+gebruikersnaam+password;
+    }
+
+    /*@GET
+    @Path("/register")
+    @UnitOfWork
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    @JsonView(View.Public.class)
+    public String signUp(@QueryParam("email") String email, @QueryParam("gebruikersnaam") String gebruikersnaam, @QueryParam("password") String password) {
+        GebruikerModel gebruikerModel = new GebruikerModel(gebruikersnaam, email, password, Role.USER);
+        //service.signUp(gebruikerModel);
+        return email + gebruikersnaam+password;
     }*/
 }
