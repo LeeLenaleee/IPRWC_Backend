@@ -51,7 +51,7 @@ DROP TABLE IF EXISTS `plaat`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `plaat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `prijs` double(5,2) DEFAULT NULL,
+  `prijs` double(10,2) DEFAULT NULL,
   `naamAlbum` varchar(25) DEFAULT NULL,
   `producent` varchar(25) DEFAULT NULL,
   `zanger` varchar(25) DEFAULT NULL,
